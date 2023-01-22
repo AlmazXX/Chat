@@ -5,8 +5,14 @@ import { MessageWithoutID } from "../types";
 const messagesRouter = Router();
 
 messagesRouter.get("/", async (req, res) => {
+  const queryDate = req.query.datetime as string
+  const date = new Date(queryDate);
+  if (isNaN(date.getDate()) && queryDate) {
+    return res.status(400).send({error: 'Invalid datetime'})
+  }
+
   const messages = await fileDb.getItems();
-  const newMessages = messages.slice(-30);
+  const newMessages = queryDate ? messages.filter(m => new Date(m.datetime) > new Date(queryDate)).slice(-30) : messages.slice(-30);
   res.send(newMessages);
 });
 
