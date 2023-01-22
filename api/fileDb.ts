@@ -22,7 +22,7 @@ const fileDb = {
     const message = { id, ...item };
     data.push(message);
     await this.save();
-    return data;
+    return message;
   },
   async save() {
     await fs.writeFile(fileName, JSON.stringify(data));
