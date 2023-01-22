@@ -1,9 +1,12 @@
 import { Router } from "express";
+import fileDb from "../fileDb";
 
 const messagesRouter = Router();
 
-messagesRouter.get("/", (req, res) => {
-  res.send(`Messages' list will be here`);
+messagesRouter.get("/", async(req, res) => {
+  const messages = await fileDb.getItems();
+  const newMessages = messages.slice(-30)
+  res.send(newMessages)
 });
 
 messagesRouter.get("/:id", (req, res) => {
