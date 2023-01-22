@@ -1,3 +1,4 @@
+import { randomUUID } from "crypto";
 import { promises as fs } from "fs";
 import { Message, MessageWithoutID } from "./types";
 
@@ -17,7 +18,7 @@ const fileDb = {
     return data;
   },
   async addItem(item: MessageWithoutID) {
-    const id = crypto.randomUUID();
+    const id = randomUUID();
     const message = { id, ...item };
     data.push(message);
     await this.save();
