@@ -17,6 +17,12 @@ messagesRouter.get("/:id", async (req, res) => {
 });
 
 messagesRouter.post("/", async (req, res) => {
+  if (!req.body.message || !req.body.author) {
+    return res
+      .status(400)
+      .send({ error: "Author and message must be present in the request" });
+  }
+
   const message: MessageWithoutID = {
     message: req.body.message,
     author: req.body.author,
