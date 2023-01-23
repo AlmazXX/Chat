@@ -1,5 +1,4 @@
-import { Container, CssBaseline } from "@mui/material";
-import { Route, Routes } from "react-router-dom";
+import { Container, CssBaseline, Grid } from "@mui/material";
 import AppToolbar from "./components/UI/AppToolbar/AppToolbar";
 import Messages from "./features/messages/Messages";
 
@@ -12,9 +11,11 @@ function App() {
       </header>
       <main>
         <Container maxWidth="xl">
-          <Routes>
-            <Route path="/" element={<Messages />} />
-          </Routes>
+          <Grid container direction="column" spacing={2}>
+            <Grid item>
+              <Messages />
+            </Grid>
+          </Grid>
         </Container>
       </main>
     </>
