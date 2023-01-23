@@ -1,12 +1,18 @@
 import { Card, CardContent, Grid, Typography } from "@mui/material";
+import { FC } from "react";
+import { Message } from "../../../../../types";
 
-const MessageItem = () => (
+interface Props {
+  message: Message;
+}
+
+const MessageItem: FC<Props> = ({message}) => (
   <Grid item sx={{width: '100%'}}>
     <Card>
       <CardContent>
-        <Typography variant="h5">author</Typography>
-        <Typography variant="body2" color='text.secondaty' sx={{mb:1.5}}>datetime</Typography>
-        <Typography variant="body2" color='text.secondaty'>Messages</Typography>
+        <Typography variant="h5">{message.author}</Typography>
+        <Typography variant="body2" color='text.secondaty' sx={{mb:1.5}}>{message.datetime}</Typography>
+        <Typography variant="body2" color='text.secondaty'>{message.message}</Typography>
       </CardContent>
     </Card>
   </Grid>
