@@ -1,6 +1,6 @@
 import { randomUUID } from "crypto";
 import { promises as fs } from "fs";
-import { Message, MessageWithoutID } from "./types";
+import { Message, MessageWithoutID } from "../types";
 
 const fileName = "./db.json";
 let data: Message[] = [];
