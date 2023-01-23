@@ -1,20 +1,16 @@
-import { AppBar, styled, Toolbar, Typography } from "@mui/material";
-import { Link as NavLink } from "react-router-dom";
-
-const Link = styled(NavLink)({
-  color: "inherit",
-  textDecoration: "none",
-  "&:hover": {
-    color: "inherit",
-  },
-});
+import { AppBar, Toolbar, Typography } from "@mui/material";
 
 const AppToolbar = () => {
   return (
     <AppBar position="sticky" sx={{ mb: 2 }}>
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <Link to="/">Chat</Link>
+        <Typography
+          variant="h6"
+          component="a"
+          href="/"
+          sx={{ flexGrow: 1, textDecoration: "none", color: "#fff" }}
+        >
+          Chat
         </Typography>
       </Toolbar>
     </AppBar>
