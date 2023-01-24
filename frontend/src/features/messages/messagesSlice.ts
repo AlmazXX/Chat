@@ -22,11 +22,11 @@ export const messagesSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchMessages.fulfilled, (state, { payload: messages }) => {
+        state.datetime = messages.length ? messages[messages.length - 1].datetime : state.datetime;
         state.items = [...state.items, ...messages];
         state.items.sort((a, b) =>
         new Date(a.datetime) > new Date(b.datetime) ? -1 : 1
         );
-        state.datetime = state.items.length ? state.items[state.items.length - 1].datetime : '';
       })
       .addCase(sendMessage.pending, (state) => {
         state.sending = true;
