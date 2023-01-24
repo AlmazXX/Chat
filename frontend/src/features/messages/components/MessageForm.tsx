@@ -1,12 +1,15 @@
 import { Button, Grid, TextField } from "@mui/material";
-import { ChangeEvent, FC, useState } from "react";
+import { ChangeEvent, FC, FormEvent, useState } from "react";
 import { MessageMutation } from "../../../../../types";
+import { useAppSelector } from "../../../app/hooks";
+import { selectMessageSending } from "../messagesSlice";
 
 interface Props {
   onSubmit: (mutation: MessageMutation) => void;
 }
 
 const MessageForm: FC<Props> = ({ onSubmit }) => {
+  const sending = useAppSelector(selectMessageSending);
   const [state, setState] = useState<MessageMutation>({
     author: "",
     message: "",
@@ -17,8 +20,17 @@ const MessageForm: FC<Props> = ({ onSubmit }) => {
     setState((prev) => ({ ...prev, [name]: value }));
   };
 
+  const onFormSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    await onSubmit(state);
+    setState({
+      author: "",
+      message: "",
+    });
+  };
+
   return (
-    <form autoComplete="off">
+    <form autoComplete="off" onSubmit={onFormSubmit}>
       <Grid container direction="column" spacing={2}>
         <Grid item>
           <TextField
@@ -41,7 +53,12 @@ const MessageForm: FC<Props> = ({ onSubmit }) => {
           />
         </Grid>
         <Grid item>
-          <Button type="submit" color="primary" variant="contained">
+          <Button
+            type="submit"
+            color="primary"
+            variant="contained"
+            disabled={sending}
+          >
             Send
           </Button>
         </Grid>
