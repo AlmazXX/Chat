@@ -24,9 +24,9 @@ const Messages = () => {
         <Typography variant="h4">Messages</Typography>
       </Grid>
       <Grid item container direction="column" alignItems="center" spacing={2}>
-        {messages.map((message) => (
+        {messages.length ? messages.map((message) => (
           <MessageItem key={message.id} message={message} />
-        ))}
+        )) : <Typography variant="body2">No messages yet</Typography>}
       </Grid>
     </Grid>
   );
