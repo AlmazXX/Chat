@@ -6,32 +6,37 @@ import { fetchMessages } from "./messagesThunk";
 interface MessagesState {
   items: Message[];
   fetchLoading: boolean;
+  datetime: string;
 }
 
 const initialState: MessagesState = {
   items: [],
   fetchLoading: false,
+  datetime: "",
 };
 
 export const messagesSlice = createSlice({
   name: "messages",
   initialState,
   reducers: {},
-  extraReducers: (builder) =>
+  extraReducers: (builder) => {
     builder
       .addCase(fetchMessages.pending, (state) => {
         state.fetchLoading = true;
       })
       .addCase(fetchMessages.fulfilled, (state, { payload: messages }) => {
         state.fetchLoading = false;
-        state.items = messages;
+        state.datetime = messages[messages.length - 1].datetime;
+        state.items = [...state.items, ...messages];
       })
       .addCase(fetchMessages.rejected, (state) => {
         state.fetchLoading = false;
-      }),
+      });
+  },
 });
 
 export const messagesReducer = messagesSlice.reducer;
 export const selectMessages = (state: RootState) => state.messages.items;
 export const selectMessagesFetching = (state: RootState) =>
   state.messages.fetchLoading;
+export const selectDatetime = (state: RootState) => state.messages.datetime;
