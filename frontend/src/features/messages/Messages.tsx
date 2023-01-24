@@ -10,10 +10,8 @@ const Messages = () => {
   const messages = useAppSelector(selectMessages);
 
   useEffect(() => {
-    let datetime = "";
     const interval = setInterval(async () => {
-      await dispatch(fetchMessages(datetime));
-      datetime = messages.length ? messages[messages.length - 1].datetime : "";
+      await dispatch(fetchMessages());
     }, 2000);
     return () => {
       clearInterval(interval);
