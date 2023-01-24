@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { Message } from "../../../../types";
+import { Message, MessageMutation } from "../../../../types";
 import { RootState } from "../../app/store";
 import axiosApi from "../../axiosApi";
 
@@ -15,3 +15,7 @@ export const fetchMessages = createAsyncThunk<
 
   return data ? data : [];
 });
+
+export const sendMessage = createAsyncThunk('messages/send',async (message:MessageMutation) => {
+  await axiosApi.post('/messages', message)
+})
