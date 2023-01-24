@@ -6,3 +6,8 @@ export interface Message {
 }
 
 export type MessageWithoutID = Omit<Message, "id">;
+
+export interface MessageMutation {
+  message: string;
+  author: string;
+}
