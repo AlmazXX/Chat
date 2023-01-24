@@ -39,6 +39,7 @@ const MessageForm: FC<Props> = ({ onSubmit }) => {
             label="Author"
             value={state.author}
             onChange={onChange}
+            required
           />
         </Grid>
         <Grid item>
@@ -50,6 +51,7 @@ const MessageForm: FC<Props> = ({ onSubmit }) => {
             rows={3}
             value={state.message}
             onChange={onChange}
+            required
           />
         </Grid>
         <Grid item>
