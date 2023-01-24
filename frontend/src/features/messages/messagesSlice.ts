@@ -30,6 +30,9 @@ export const messagesSlice = createSlice({
         state.fetchLoading = false;
         state.datetime = messages[messages.length - 1].datetime;
         state.items = [...state.items, ...messages];
+        state.items.sort((a, b) =>
+          new Date(a.datetime) > new Date(b.datetime) ? -1 : 1
+        );
       })
       .addCase(fetchMessages.rejected, (state) => {
         state.fetchLoading = false;
