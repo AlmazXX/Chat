@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Message } from "../../../../types";
+import { Message } from "../../types";
 import { RootState } from "../../app/store";
 import { fetchMessages, sendMessage } from "./messagesThunk";
 

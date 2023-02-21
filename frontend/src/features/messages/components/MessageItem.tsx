@@ -1,7 +1,7 @@
 import { Card, CardContent, Grid, Typography } from "@mui/material";
 import dayjs from "dayjs";
 import { FC } from "react";
-import { Message } from "../../../../../types";
+import { Message } from "../../../types";
 
 interface Props {
   message: Message;

@@ -1,6 +1,6 @@
 import { Button, Grid, TextField } from "@mui/material";
 import { ChangeEvent, FC, FormEvent, useState } from "react";
-import { MessageMutation } from "../../../../../types";
+import { MessageMutation } from "../../../types";
 import { useAppSelector } from "../../../app/hooks";
 import { selectMessageSending } from "../messagesSlice";
 

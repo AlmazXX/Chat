@@ -1,5 +1,5 @@
 import { Container, CssBaseline, Grid } from "@mui/material";
-import { MessageMutation } from "../../types";
+import { MessageMutation } from "./types";
 import { useAppDispatch } from "./app/hooks";
 import AppToolbar from "./components/UI/AppToolbar/AppToolbar";
 import MessageForm from "./features/messages/components/MessageForm";

@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { Message, MessageMutation } from "../../../../types";
+import { Message, MessageMutation } from "../../types";
 import { RootState } from "../../app/store";
 import axiosApi from "../../axiosApi";
 
