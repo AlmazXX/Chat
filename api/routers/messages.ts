@@ -1,6 +1,6 @@
 import { Router } from "express";
 import fileDb from "../fileDb";
-import { MessageWithoutID } from "../../types";
+import { MessageWithoutID } from "../types";
 
 const messagesRouter = Router();
 
