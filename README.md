@@ -3,6 +3,9 @@
 Chat is a web application for real-time chat between users. It uses node express for backend server and self-written db for storing messages. Frontend is implemented by applying React, Redux-Toolkit and Material-UI for components.
 
 
+## Demo
+![Demo](https://github.com/AlmazXX/Chat/blob/master/demo/Chat.gif)
+
 ## Getting started
 
 To get started with this project, clone the repository to your local machine:
