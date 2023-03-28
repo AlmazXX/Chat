@@ -1,6 +1,6 @@
 # Chat
 
-Chat is a web application for real-time chat between users. It uses node express for backend server and self-written db for storing messages. Frontend is implemented by applying React, Redux-Toolkit and Material-UI for components.
+Chat is a web application for real-time chat between users. It uses long polling approach to have persistent connection with server. Server side is written on Express and self-written db for storing messages. Frontend is implemented by applying React, Redux-Toolkit and Material-UI for components.
 
 
 ## Demo
